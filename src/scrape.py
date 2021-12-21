@@ -1,38 +1,16 @@
 import time
 import re
-from dataclasses import dataclass
 
+from dataclasses import dataclass
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from bs4 import BeautifulSoup
 
+from game import SteamGame
+from review import SteamReview
+
 
 driver_path = '/home/snirlugassy/Documents/School/Gorem/HW2/geckodriver'
-
-
-@dataclass
-class SteamGame:
-    title: str
-    description: str
-    developer: str
-    publisher: str
-    rating: int
-    review_count: int
-    release_date: int
-    features: list[str]
-    tags: list[str]
-    img: str
-    min_sys_req: str
-    rec_sys_req: str
-
-
-@dataclass
-class SteamReview:
-    text: str
-    helpful: str
-    recommendation: str
-    rewards: int
-    hrs_on_record: float
 
 
 def store_page_url(game_id):
@@ -59,7 +37,6 @@ def scrape_game_store_page(game_id):
     rating = int(soup.find('meta', itemprop='ratingValue')['content'])
     release_date = soup.find('div', class_='release_date').find('div', class_='date').text.strip()
     game_description = soup.find('div', class_='game_description_snippet').text.strip()
-    developer = soup.find('div', id='developers_list').a.text.strip()
     game_image = soup.find('img', class_='game_header_image_full')['src']
 
     dev_info = {}
