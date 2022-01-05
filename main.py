@@ -4,6 +4,7 @@ from src.scrape import scrape_game_reviews_page
 from src.scrape import scrape_game_store_page
 
 games = [
+    594650,
     261550
 ]
 

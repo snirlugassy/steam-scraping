@@ -3,6 +3,7 @@ import re
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 
 from src.game import SteamGame
@@ -44,6 +45,16 @@ def get_driver():
 def scrape_game_store_page(game_id):
     driver = get_driver()
     driver.get(store_page_url(game_id))
+
+    try:
+        select_year = Select(driver.find_element_by_id('ageYear'))
+        select_year.select_by_value('1990')
+        btn = driver.find_element_by_id('view_product_page_btn')
+        btn.click()
+        time.sleep(3)
+    except:
+        pass
+
     soup = BeautifulSoup(driver.page_source, 'html')
 
     game_title = soup.find('div', id='appHubAppName').text.strip()
