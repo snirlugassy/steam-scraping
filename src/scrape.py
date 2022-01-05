@@ -6,8 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from bs4 import BeautifulSoup
 
-from game import SteamGame
-from review import SteamReview
+from src.game import SteamGame
+from src.review import SteamReview
 
 
 driver_path = '/home/snirlugassy/Documents/School/Gorem/HW2/geckodriver'
@@ -19,7 +19,7 @@ def store_page_url(game_id):
 def reviews_page_url(game_id):
     return f'https://steamcommunity.com/app/{game_id}/reviews/?p=1&browsefilter=toprated'
 
-def get_driver():
+def get_firefox_driver():
     options = Options()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
@@ -27,8 +27,16 @@ def get_driver():
 
     return webdriver.Firefox(options=options, executable_path=driver_path)
 
+def get_safari_driver():
+    # For MacOS: Run `safaridriver --enable` in the terminal before using Safari Driver
+    options = Options()
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--incognito')
+
+    return webdriver.Safari(options=Options)
+
 def scrape_game_store_page(game_id):
-    driver = get_driver()
+    driver = get_safari_driver()
     driver.get(store_page_url(game_id))
     soup = BeautifulSoup(driver.page_source, 'html')
 
@@ -78,7 +86,7 @@ def scrape_game_store_page(game_id):
     )
 
 def scrape_game_reviews_page(game_id, review_limit):
-    driver = get_driver()
+    driver = get_safari_driver()
     driver.get(reviews_page_url(game_id))
 
     try:
@@ -145,5 +153,5 @@ if __name__ == '__main__':
         steam_game = scrape_game_store_page(game['id'])
         print(steam_game)
 
-        steam_reviews = scrape_game_reviews_page(game['id'])
+        steam_reviews = scrape_game_reviews_page(game['id'], review_limit=100)
         print(steam_reviews)
