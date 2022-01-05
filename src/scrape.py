@@ -79,13 +79,17 @@ def scrape_game_store_page(game_id):
 
     min_sys_req = []
     min_sys_req_soup = soup.find('div', class_='game_area_sys_req').find('div', class_='game_area_sys_req_leftCol')
-    for req in min_sys_req_soup.find('ul', class_='bb_ul').find_all('li'):
-        min_sys_req.append(req.text.strip())
+    if min_sys_req_soup:
+        for req in min_sys_req_soup.find('ul', class_='bb_ul').find_all('li'):
+            min_sys_req.append(req.text.strip())
 
     rec_sys_req = []
     rec_sys_req_soup = soup.find('div', class_='game_area_sys_req').find('div', class_='game_area_sys_req_rightCol')
-    for req in rec_sys_req_soup.find('ul', class_='bb_ul').find_all('li'):
-        rec_sys_req.append(req.text.strip())
+    if rec_sys_req_soup:
+        for req in rec_sys_req_soup.find('ul', class_='bb_ul').find_all('li'):
+            rec_sys_req.append(req.text.strip())
+
+    driver.close()
 
     return SteamGame(
         title=game_title,
@@ -115,13 +119,22 @@ def scrape_game_reviews_page(game_id, review_limit):
 
     review_cards = driver.find_elements_by_class_name('apphub_Card')
 
+    attempts = 0
+    last_count = 0
     while len(review_cards) < review_limit:
+        if last_count == len(review_cards):
+            attempts += 1
+        else:
+            attempts = 0
+        if attempts > 10:
+            break
+        last_count = len(review_cards)
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(3)
         review_cards = driver.find_elements_by_class_name('apphub_Card')
 
     soup = BeautifulSoup(driver.page_source)
-    cards = soup.find_all('div', class_='apphub_Card')[:review_limit]
+    cards = soup.find_all('div', class_='apphub_Card')
 
     reviews = []
     for card in cards:
@@ -159,4 +172,7 @@ def scrape_game_reviews_page(game_id, review_limit):
             rewards=review_total_rewards,
             hrs_on_record=hrs_on_record
         ))
+    
+    driver.close()
+
     return reviews
