@@ -12,7 +12,7 @@ from src.review import SteamReview
 
 driver_path = '/home/snirlugassy/Documents/School/Gorem/HW2/geckodriver'
 
-USE_BROWSER = 'firefox'
+USE_BROWSER = 'safari'
 
 def store_page_url(game_id):
     return f'https://store.steampowered.com/app/{game_id}/'
@@ -33,6 +33,7 @@ def get_safari_driver():
     options = Options()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
+    options.add_argument('--headless')
 
     return webdriver.Safari(options=Options)
 
@@ -94,8 +95,8 @@ def scrape_game_store_page(game_id):
     return SteamGame(
         title=game_title,
         description=game_description,
-        developer=dev_info['Developer'],
-        publisher=dev_info['Publisher'],
+        developer=dev_info.get('Developer'),
+        publisher=dev_info.get('Publisher'),
         rating=rating,
         review_count=review_count,
         release_date=release_date,
@@ -152,7 +153,7 @@ def scrape_game_reviews_page(game_id, review_limit):
 
         helpful_text = ''.join(helpful_text).strip()
 
-        review_total_rewards = int(card.find(class_='review_award_aggregated').text.strip())
+        review_total_rewards = int(card.find(class_='review_award_aggregated').text.replace(',','').strip())
 
         review_text = []
         for _child in card.find('div', class_='apphub_CardTextContent').children:
