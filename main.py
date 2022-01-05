@@ -4,15 +4,15 @@ from src.scrape import scrape_game_reviews_page
 from src.scrape import scrape_game_store_page
 
 games = [
-    {'id': 261550, 'name': 'Mount__Blade_II_Bannerlord'}
+    261550
 ]
 
 data = []
 for game in games:
-    steam_game = scrape_game_store_page(game['id'])
+    steam_game = scrape_game_store_page(game)
     print(steam_game)
 
-    steam_reviews = scrape_game_reviews_page(game['id'], review_limit=100)
+    steam_reviews = scrape_game_reviews_page(game, review_limit=100)
     print(steam_reviews)
 
     data.append({
