@@ -13,6 +13,7 @@ class SteamGame:
     features: list[str]
     tags: list[str]
     img: str
+    video_src: str
     min_sys_req: str
     rec_sys_req: str
 

@@ -59,6 +59,7 @@ def scrape_game_store_page(game_id):
     soup = BeautifulSoup(driver.page_source, 'html')
 
     game_title = soup.find('div', id='appHubAppName').text.strip()
+    video_src = soup.find('video').attrs.get('src')
     review_count = int(soup.find('meta', itemprop='reviewCount')['content'])
     rating = int(soup.find('meta', itemprop='ratingValue')['content'])
     release_date = soup.find('div', class_='release_date').find('div', class_='date').text.strip()
@@ -103,6 +104,7 @@ def scrape_game_store_page(game_id):
         features=features,
         tags=tags,
         img=game_image,
+        video_src=video_src,
         min_sys_req=min_sys_req,
         rec_sys_req=rec_sys_req
     )
