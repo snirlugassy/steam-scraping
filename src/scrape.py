@@ -1,7 +1,6 @@
 import time
 import re
 
-from dataclasses import dataclass
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from bs4 import BeautifulSoup
@@ -12,6 +11,7 @@ from src.review import SteamReview
 
 driver_path = '/home/snirlugassy/Documents/School/Gorem/HW2/geckodriver'
 
+USE_BROWSER = 'firefox'
 
 def store_page_url(game_id):
     return f'https://store.steampowered.com/app/{game_id}/'
@@ -35,8 +35,14 @@ def get_safari_driver():
 
     return webdriver.Safari(options=Options)
 
+def get_driver():
+    if USE_BROWSER == 'firefox':
+        return get_firefox_driver()
+    elif USE_BROWSER == 'safari':
+        return get_safari_driver()
+
 def scrape_game_store_page(game_id):
-    driver = get_safari_driver()
+    driver = get_driver()
     driver.get(store_page_url(game_id))
     soup = BeautifulSoup(driver.page_source, 'html')
 
@@ -86,7 +92,7 @@ def scrape_game_store_page(game_id):
     )
 
 def scrape_game_reviews_page(game_id, review_limit):
-    driver = get_safari_driver()
+    driver = get_driver()
     driver.get(reviews_page_url(game_id))
 
     try:
@@ -143,15 +149,3 @@ def scrape_game_reviews_page(game_id, review_limit):
             hrs_on_record=hrs_on_record
         ))
     return reviews
-
-if __name__ == '__main__':
-    games = [
-        {'id': 261550, 'name': 'Mount__Blade_II_Bannerlord'}
-    ]
-
-    for game in games:
-        steam_game = scrape_game_store_page(game['id'])
-        print(steam_game)
-
-        steam_reviews = scrape_game_reviews_page(game['id'], review_limit=100)
-        print(steam_reviews)

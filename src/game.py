@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 
 @dataclass
@@ -15,3 +15,6 @@ class SteamGame:
     img: str
     min_sys_req: str
     rec_sys_req: str
+
+    def to_dict(self):
+        return asdict(self)
