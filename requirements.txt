@@ -1,0 +1,5 @@
+beautifulsoup4==4.10.0
+bs4==0.0.1
+matplotlib==3.5.1
+numpy==1.22.0
+selenium==4.1.0
