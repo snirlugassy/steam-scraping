@@ -5,6 +5,7 @@ from dataclasses import dataclass, asdict
 class SteamGame:
     title: str
     description: str
+    price: str
     developer: str
     publisher: str
     rating: int

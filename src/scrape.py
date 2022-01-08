@@ -59,6 +59,7 @@ def scrape_game_store_page(game_id):
     soup = BeautifulSoup(driver.page_source, 'html')
 
     game_title = soup.find('div', id='appHubAppName').text.strip()
+    price = soup.find('div', class_='game_purchase_price').text.strip()
     video_src = soup.find('video').attrs.get('src')
     review_count = int(soup.find('meta', itemprop='reviewCount')['content'])
     rating = int(soup.find('meta', itemprop='ratingValue')['content'])
@@ -96,6 +97,7 @@ def scrape_game_store_page(game_id):
     return SteamGame(
         title=game_title,
         description=game_description,
+        price=price,
         developer=dev_info.get('Developer'),
         publisher=dev_info.get('Publisher'),
         rating=rating,

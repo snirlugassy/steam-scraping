@@ -6,6 +6,7 @@
             "developer": "TaleWorlds Entertainment",
             "publisher": "TaleWorlds Entertainment",
             "rating": 9,
+            "price": "NIS 189.95",
             "review_count": 140013,
             "release_date": "30 Mar, 2020",
             "features": [
@@ -756,6 +757,7 @@
         "game": {
             "title": "TEKKEN 7",
             "description": "Discover the epic conclusion of the long-time clan warfare between members of the Mishima family. Powered by Unreal Engine 4, the legendary fighting game franchise fights back with stunning story-driven cinematic battles and intense duels that can be enjoyed with friends and rivals.",
+            "price": "NIS 150.00",
             "developer": "BANDAI NAMCO Studios Inc.",
             "publisher": "BANDAI NAMCO Entertainment",
             "rating": 9,
@@ -1517,6 +1519,7 @@
         "game": {
             "title": "Muse Dash",
             "description": "Play as charismatic Heroines, Dash through fairy tale themed stages, Dance to rhythm and beats, and Kick silly cute enemies into outer space!",
+            "price": "NIS 10.95",
             "developer": "peropero",
             "publisher": "hasuhasu",
             "rating": 10,
@@ -2254,6 +2257,7 @@
         "game": {
             "title": "NBA 2K22",
             "description": "NBA 2K22 puts the entire basketball universe in your hands. Anyone, anywhere can hoop in NBA 2K22.",
+            "price": "NIS 239.00",
             "developer": "Visual Concepts",
             "publisher": "2K",
             "rating": 6,
@@ -3017,6 +3021,7 @@
         "game": {
             "title": "Shadowverse CCG",
             "description": "Four million battles every day. One Shadowverse. Japan's #1 strategic card game. Made by card gamers for card gamers.",
+            "price": "Free To Play",
             "developer": "Cygames, Inc.",
             "publisher": "Cygames, Inc., Cygames Korea Inc.",
             "rating": 7,
@@ -3751,6 +3756,7 @@
         "game": {
             "title": "Hunt: Showdown",
             "description": "Hunt: Showdown is a thrilling, high-stakes PvPvE first-person shooter. Take down nightmarish monsters, as you compete for the bounties that will bring you glory, gear, and gold in this unforgiving and unforgettable - online multiplayer experience.",
+            "price": "NIS 149.00",
             "developer": "Crytek",
             "publisher": "Crytek",
             "rating": 9,
@@ -4375,6 +4381,7 @@
         "game": {
             "title": "BLUE REFLECTION: Second Light",
             "description": "As the last summer day fades, all is illuminated. With gorgeous translucent designs by Mel Kishida, as well as a story that depicts the youth of lifelike girls, based on a theme of human identity and bonding, a new title in the BLUE REFLECTION series is here!",
+            "price": "NIS 224.95",
             "developer": "KOEI TECMO GAMES CO., LTD.",
             "publisher": "KOEI TECMO GAMES CO., LTD.",
             "rating": 9,
@@ -5104,6 +5111,7 @@
         "game": {
             "title": "A Way Out",
             "description": "A Way Out is an exclusively co-op adventure where you play the role of one of two prisoners making their daring escape from prison.",
+            "price": "NIS 159.00",
             "developer": "Hazelight",
             "publisher": "Electronic Arts",
             "rating": 9,
@@ -5858,6 +5866,7 @@
         "game": {
             "title": "Russian Fishing 4",
             "description": "Russian Fishing 4 is a fishing simulator with RPG elements. There is no story line and the whole process is based on the concept of an open, free to roam and free to play game.",
+            "price": "Free To Play",
             "developer": "Russian Fishing",
             "publisher": "Russian Fishing",
             "rating": 7,
@@ -6612,6 +6621,7 @@
         "game": {
             "title": "The Sims 4",
             "description": "Play with life and discover the possibilities. Unleash your imagination and create a world of Sims that\u2019s wholly unique. Explore and customize every detail from Sims to homes\u2013and much more.",
+            "price": "NIS 169.00",
             "developer": "Maxis",
             "publisher": "Electronic Arts",
             "rating": 9,
@@ -7363,6 +7373,7 @@
         "game": {
             "title": "Fall Guys: Ultimate Knockout",
             "description": "Fall Guys is a massively multiplayer party game with up to 60 players online in a free-for-all struggle through round after round of escalating chaos until one victor remains!",
+            "price": "NIS 73.95",
             "developer": "Mediatonic",
             "publisher": null,
             "rating": 9,
@@ -8113,6 +8124,7 @@
         "game": {
             "title": "Rust",
             "description": "The only aim in Rust is to survive. Everything wants you to die - the island\u2019s wildlife and other inhabitants, the environment, other survivors. Do whatever it takes to last another night.",
+            "price": "NIS 149.95",
             "developer": "Facepunch Studios",
             "publisher": "Facepunch Studios",
             "rating": 9,
@@ -8875,6 +8887,7 @@
         "game": {
             "title": "Dead by Daylight",
             "description": "Dead by Daylight is a multiplayer (4vs1) horror game where one player takes on the role of the savage Killer, and the other four players play as Survivors, trying to escape the Killer and avoid being caught and killed.",
+            "price": "NIS 73.95",
             "developer": "Behaviour Interactive Inc.",
             "publisher": "Behaviour Interactive Inc.",
             "rating": 9,
@@ -9637,6 +9650,7 @@
         "game": {
             "title": "Terraria",
             "description": "Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!",
+            "price": "NIS 36.95",
             "developer": "Re-Logic",
             "publisher": "Re-Logic",
             "rating": 10,
@@ -10392,6 +10406,7 @@
         "game": {
             "title": "Metro Exodus",
             "description": "Flee the shattered ruins of the Moscow Metro and embark on an epic, continent-spanning journey across the post-apocalyptic Russian wilderness. Explore vast, non-linear levels, lose yourself in an immersive, sandbox survival experience, and follow a thrilling story-line that spans an entire year in the greatest Metro adventure yet.",
+            "price": "NIS 104.00",
             "developer": "4A Games",
             "publisher": "Deep Silver",
             "rating": 9,
